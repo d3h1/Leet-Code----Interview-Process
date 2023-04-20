@@ -15,6 +15,6 @@ class Solution:
             count = [0] * 26 # declaring 0 to give the letters a place to go in terms of counting, we also declare them through their indexes using ascii chars a.....z
             for c in s: #the s is the string it self and that will be our 'n'
                 count[ord(c) - ord('a')] += 1 # we are using the chars ascii values to get their index and add 1 to their count
-            res[tuple(count)].add(s) # we are using the count of characters to be arranges into similar groups based on their strings
+            res[tuple(count)].append(s) # we are using the count of characters to be arranges into similar groups based on their strings
         return res.values()
             
