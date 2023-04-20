@@ -26,4 +26,11 @@ findNemo(everyone); // !This function is O(n) -- big O of n. LINEAR TIME
 // O(n) is the most common notation -- it is a fair performance compared to others
 
 
-// ! BIG O DOES NOT MEASURE THINGS IN SECONDS, RATHER, IN HOW QUICKLY RUN TIMES GROW -- size of input and compare to number of operations that increase -- SCALABILITY
+// ! BIG O DOES NOT MEASURE THINGS IN SECONDS, RATHER, IN HOW QUICKLY RUN TIMES GROW -- size of input and compare to number of operations that increase -- SCALABILITY 
+
+
+
+
+
+
+
