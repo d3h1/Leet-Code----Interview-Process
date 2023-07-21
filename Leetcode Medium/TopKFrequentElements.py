@@ -19,6 +19,7 @@ class Solution:
             # Go through every value in frequency at index i because every item inserted to i is another sublist (empty, or values)
             for n in freq[i]:
                 res.append(n) # Getting the n value that occurs most frequently
+                # Basically if your result array has reached the k amount of lists we need, we will return the most frequent elements 
                 if len(res) == k:
                     return res
 
