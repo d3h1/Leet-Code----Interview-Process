@@ -26,3 +26,7 @@ class Solution:
                         return False
                 
                 # If thoat value pair is not found in any of them, we will add them to their respective hashmap
+                rows[r].add(board[r][c])
+                cols[c].add(board[r][c])
+                squares[r//3, c//3].add(board[r][c])
+        return True
