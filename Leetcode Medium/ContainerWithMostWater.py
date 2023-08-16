@@ -13,7 +13,7 @@ class Solution:
             if height[r] > height[l]:
                 l += 1
             
-            elif height[r] <= height[l]:
+            else:
                 r -= 1
             
             
