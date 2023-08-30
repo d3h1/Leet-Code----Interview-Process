@@ -19,4 +19,14 @@ class MinStack:
         self.stack.pop()
         self.minStack.pop()
     
-    # Create the 
+    # Create the top functionality
+    def top(self) -> int:
+        # Only need to return stack with top as we will use getMin for the minStack
+        return self.stack[-1]
+
+    # Create the get min functionality
+    def getMin(self) -> int:
+        # Use get min for the top of the minStack
+        return self.minStack[-1]
+    
+# TIME COMPLEXITY : O(1) -- Constant time needed for each function here
