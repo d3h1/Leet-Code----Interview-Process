@@ -1,18 +1,14 @@
 class Solution:
-    def dailyTemperatures(self, temperatures: List[int]) -> List:
-        # We want to declare the answer array like the problem says here
-        # Use the length of the temperatures to keep consistent length outputs to each number in that OG list
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        # PROBLEM UNDERSTANDING
+        # Output has to be the amount of days ahead of a certain index in temperatures where the next temperature is greater than the current one
+
         answer = [0] * len(temperatures)
-        
-        # We then declare the stack that we will append to and pop to when it comes to each temp from the temperatures list
-        # In order to output lengths betwee ntemps correctly, we will pair our numbers together in the stack like this -> [temp,index]
-        stack = []
-        
+        stack = [] # Will take out temps and append or pop based on values
+
         for i, t in enumerate(temperatures):
-            # Next step is to check if the stack is empty and if the temperature being added is greater than the on before it
-            while stack and t > stack[-1][0]:
-                stackT, stackI = stack.pop()
-                answer[stackI] = [i - stackI]
-            stack.append([t,i])
-        return answer
-        
+            while stack and t > stack[-1][0]: # check the stack and see if cur temp is greater than previous
+                stackT, stackInd = stack.pop() # if it is greater - we want to pop the previous index and stack
+                answer[stackInd] = i - stackInd # to get the length between them, we want to take the current "greater values index" and then subtract the "less than values index from it". THIS IS HOW WE GET NUMBER OF DAYS BETWEEN
+            stack.append((t,i)) # we only that previous step if those conditions are good. once done, we would append the temp pair that ended up with that current for loop iteration. 
+        return answer # once the for loop is done, we know that the answer that is appended to finally is good to go
