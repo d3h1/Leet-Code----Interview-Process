@@ -1,3 +1,7 @@
+# Can be solved in linear time. Each point is a point on a graph with the slope of their speed. This is how we can determine which one gets to the target first
+
+# Can be done right to left --- reverse order allows for things to not collide into each other
+
 class Solution:
     def CarFleet(self, target: int, position: List[int], speed: List[int]) -> int:
         pair = [(p,s) for p, s in zip(position, speed)]
