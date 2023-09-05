@@ -3,16 +3,17 @@
 # Can be done right to left --- reverse order allows for things to not collide into each other
 
 class Solution:
-    def CarFleet(self, target: int, position: List[int], speed: List[int]) -> int:
-        pair = [(p,s) for p, s in zip(position, speed)]
-        pair.sort(reverse=True) # This is the reasoning behind reversing it. The values that are at bottom will be on top so we can add to the stack right to left
+    def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
+        pair = [[p, s] for p, s in zip(position, speed)] # List comrehension
+
+        stack = [] # Carfleets at end
+
+        for p, s in sorted(pair)[::-1]: # Reverse Sort
+            stack.append((target - p) / s) # !THIS IS THE TIME --  decimal division as we dont want integer division
+            # *If it has atleast two cars and if time that top of stack reaches before the one ahead of it --- this must mean THEY COLLIDE causing a car fleet
+            if len(stack) >= 2 and stack[-1] <= stack[-2]:  
+                stack.pop() # !decreasing amount of carfleets -- combining cars to one basically
         
-        stack = []
-        
-        for p,s in pair:
-            stack.append((target - p) / s) # we do this to get the value from target based on position and speed
-            if len(stack) >= 2 and stack[-1] <= stack[-2]:
-                stack.pop() # we pop values that are greater than a length of 2 as well as less than the value before it
         return len(stack)
     
     #! TIME COMPLEXITY : O(nlogn) -- due to sorting
